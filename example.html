@@ -1,0 +1,52 @@
+<!doctype html> 
+<html> 
+	<head> 
+		<title>JS1k, 1k demo submission [16]</title> 
+		<meta charset="utf-8" /> 
+	</head> 
+	<body> 
+		<canvas id="c"></canvas> 
+		<script> 
+
+			canvas = document.getElementById("c").getContext("2d");
+			canvas.translate(160, 130);
+			
+			treeGen(99);
+
+			function treeGen(generations){
+				
+				canvas.fillRect(-17, -17, 34, 34);
+				drawSquare(.7, -1);
+				drawSquare(.7, 1);
+				
+				function drawSquare(size_factor, orientation){
+				// Located here so it sees the same canvas as treeGen, not for redefining.
+				// Move canvas for drawing next generation.
+					
+					// State of canvas shifted for drawing, saved
+					// to be restored for viewing at the end.
+					canvas.save();
+					
+					canvas.translate(orientation * 17, -17); // Move canvas origin.
+					
+					canvas.rotate(orientation * Math.acos(size_factor));
+					// acos is inverse of cosine, finds angles when we have lengths.
+					// length is given as size_factor, so based on that we can
+					// properly rotate the squares.
+					
+					canvas.scale(size_factor, size_factor); // Zoom in canvas.
+					
+					canvas.translate(orientation * -17, -17); // Move canvas again?
+					
+					if (generations > 1)
+						treeGen(generations * size_factor); // Generation limit.
+					
+					canvas.restore();
+					
+				}
+			
+			}
+
+		</script> 
+	</body> 
+</html>

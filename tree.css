@@ -1,0 +1,60 @@
+body
+{
+margin:0px;
+padding:0px;
+border:0px;
+color:white;
+}
+
+#canvas_container 
+{
+width:100vh;
+height:100vh;
+display: table;
+margin: 0 auto;
+}
+
+#menu
+{
+position:fixed;
+display:block;
+width:100%;
+height:60px;
+bottom:0px;
+background-color:gray;
+border: 1px solid black
+}
+
+button, input
+{
+margin:10px;
+font-size:20px;
+border: 1px solid black;
+}
+
+.short
+{
+width: 60px;
+}
+
+.med
+{
+width:110px;
+}
+
+#inputs
+{
+display: table;
+margin: 0 auto;
+}
+
+div#sky
+{
+position:absolute;
+top:0px;
+left:0px;
+height:650px;
+width:100%;
+background-image:url(sky.png);
+z-index:-100;
+}
